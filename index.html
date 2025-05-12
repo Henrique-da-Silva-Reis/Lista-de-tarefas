@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda de Registros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Agenda de Afazeres</h1>
+        <form id="registroForm">
+            <input type="text" id="conteudo" placeholder="Digite o texto ou link" required>
+
+            <select id="tipo">
+                <option value="treino">Treino</option>
+                <option value="leitura">Leitura</option>
+                <option value="ideia">Ideia</option>
+                <option value="outro">Outro</option>
+            </select>
+
+            <input type="text" id="subtipo" placeholder="Tipo de treino ou subtipo (opcional)">
+
+            <select id="dia">
+                <option value="Domingo">Domingo</option>
+                <option value="Segunda">Segunda</option>
+                <option value="Terça">Terça</option>
+                <option value="Quarta">Quarta</option>
+                <option value="Quinta">Quinta</option>
+                <option value="Sexta">Sexta</option>
+                <option value="Sábado">Sábado</option>
+            </select>
+
+            <button type="submit">Salvar</button>
+            
+        </form>
+
+        <h2>Todos os Registros</h2>
+        <ul id="listaRegistros"></ul>
+
+        <h2>Afazeres por Dia</h2>
+        <div id="afazeresPorDia"></div>
+    </div>
+    <div id="filtros">
+        <label for="filtroTipo">Filtrar por tipo:</label>
+        <select id="filtroTipo">
+            <option value="todos">Todos</option>
+            <option value="treino">Treino</option>
+            <option value="leitura">Leitura</option>
+            <option value="ideia">Ideia</option>
+            <option value="outro">Outro</option>
+        </select>
+    </div>
+    
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

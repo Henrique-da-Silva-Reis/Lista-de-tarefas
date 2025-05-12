@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 1em;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #eee;
+    margin-top: 10px;
+    padding: 10px;
+    border-left: 5px solid #4CAF50;
+}
+
+#afazeresPorDia {
+    margin-top: 20px;
+}
+
+.afazeres-dia {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-left: 5px solid #2196F3;
+}
+
+#filtros {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.apagar-btn {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    float: right;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.apagar-btn:hover {
+    background-color: #c62828;
+}
