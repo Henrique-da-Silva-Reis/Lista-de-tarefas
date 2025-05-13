@@ -5,6 +5,10 @@ body {
     padding: 20px;
 }
 
+.container h1, h2{
+    text-align: center;
+}
+
 .container {
     max-width: 600px;
     margin: auto;
@@ -75,6 +79,7 @@ li {
     float: right;
     cursor: pointer;
     font-size: 0.9em;
+    border-radius: 6px;
 }
 
 .apagar-btn:hover {

@@ -36,8 +36,16 @@ function listarRegistros() {
         if (filtro === "todos" || reg.tipo === filtro) {
             const li = document.createElement("li");
             const subtipoTexto = reg.subtipo ? ` - ${reg.subtipo}` : "";
+
+            let conteudoExibido;
+            if (reg.conteudo.startsWith("http://") || reg.conteudo.startsWith("https://")) {
+                conteudoExibido = `<a href="${reg.conteudo}" target="_blank">${reg.conteudo}</a>`;
+            } else {
+                conteudoExibido = reg.conteudo;
+            }
+
             li.innerHTML = `
-                [${reg.dia}] (${reg.tipo}${subtipoTexto}) - ${reg.conteudo}
+                [${reg.dia}] (${reg.tipo}${subtipoTexto}) - ${conteudoExibido}
                 <button class="apagar-btn" onclick="apagarRegistro(${index})">X</button>
             `;
             lista.appendChild(li);
@@ -74,35 +82,19 @@ function mostrarAfazeresPorDia() {
     });
 }
 
-function listarRegistros() {
-    const lista = document.getElementById("listaRegistros");
-    lista.innerHTML = "";
+function alternarListaRegistros(event) {
+    const container = document.getElementById("containerRegistros");
+    const botao = event.target;
 
-    const filtro = document.getElementById("filtroTipo").value;
-    const registros = JSON.parse(localStorage.getItem("registros")) || [];
-
-    registros.forEach((reg, index) => {
-        if (filtro === "todos" || reg.tipo === filtro) {
-            const li = document.createElement("li");
-            const subtipoTexto = reg.subtipo ? ` - ${reg.subtipo}` : "";
-
-            let conteudoExibido;
-            if (reg.conteudo.startsWith("http://") || reg.conteudo.startsWith("https://")) {
-                conteudoExibido = `<a href="${reg.conteudo}" target="_blank">${reg.conteudo}</a>`;
-            } else {
-                conteudoExibido = reg.conteudo;
-            }
-
-            li.innerHTML = `
-                [${reg.dia}] (${reg.tipo}${subtipoTexto}) - ${conteudoExibido}
-                <button class="apagar-btn" onclick="apagarRegistro(${index})">X</button>
-            `;
-            lista.appendChild(li);
-        }
-    });
+    if (container.style.display === "none") {
+        container.style.display = "block";
+        botao.textContent = "Esconder Registros";
+        listarRegistros(); // Atualiza a lista assim que o botão é clicado
+    } else {
+        container.style.display = "none";
+        botao.textContent = "Mostrar Registros";
+    }
 }
-
-
 
 document.getElementById("registroForm").addEventListener("submit", salvarRegistro);
 document.getElementById("filtroTipo").addEventListener("change", listarRegistros);

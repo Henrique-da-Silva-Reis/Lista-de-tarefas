@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Agenda de Registros</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
-        <h1>Agenda de Afazeres</h1>
+        <h1>Agenda</h1>
         <form id="registroForm">
             <input type="text" id="conteudo" placeholder="Digite o texto ou link" required>
 
@@ -22,37 +24,53 @@
 
             <select id="dia">
                 <option value="Domingo">Domingo</option>
-                <option value="Segunda">Segunda</option>
-                <option value="Terça">Terça</option>
-                <option value="Quarta">Quarta</option>
-                <option value="Quinta">Quinta</option>
-                <option value="Sexta">Sexta</option>
+                <option value="Segunda">Segunda-feira</option>
+                <option value="Terça">Terça-feira</option>
+                <option value="Quarta">Quarta-feira</option>
+                <option value="Quinta">Quinta-feira</option>
+                <option value="Sexta">Sexta-feira</option>
                 <option value="Sábado">Sábado</option>
             </select>
 
             <button type="submit">Salvar</button>
-            
+
         </form>
 
-        <h2>Todos os Registros</h2>
-        <ul id="listaRegistros"></ul>
+        <button onclick="alternarListaRegistros(event)">Mostrar Registros</button>
 
-        <h2>Afazeres por Dia</h2>
+        <div id="containerRegistros" style="display: none;">
+            <h2>Todos os Registros</h2>
+
+            <!-- Filtro de Tipo -->
+            <select id="filtroTipo" onchange="listarRegistros()">
+                <option value="todos">Todos</option>
+                <option value="treino">Treino</option>
+                <option value="leitura">Leitura</option>
+                <option value="ideia">Ideia</option>
+                <option value="outro">Outro</option>
+            </select>
+
+            <!-- Filtro de Dia -->
+            <select id="filtroDia" onchange="listarRegistros()">
+                <option value="todos">Todos os Dias</option>
+                <option value="domingo">Domingo</option>
+                <option value="segunda">Segunda-feira</option>
+                <option value="terca">Terça-feira</option>
+                <option value="quarta">Quarta-feira</option>
+                <option value="quinta">Quinta-feira</option>
+                <option value="sexta">Sexta-feira</option>
+                <option value="sabado">Sábado</option>
+            </select>
+
+            <!-- Lista de Registros -->
+            <ul id="listaRegistros"></ul>
+        </div>
+
+        <h2>Afazeres</h2>
         <div id="afazeresPorDia"></div>
     </div>
-    <div id="filtros">
-        <label for="filtroTipo">Filtrar por tipo:</label>
-        <select id="filtroTipo">
-            <option value="todos">Todos</option>
-            <option value="treino">Treino</option>
-            <option value="leitura">Leitura</option>
-            <option value="ideia">Ideia</option>
-            <option value="outro">Outro</option>
-        </select>
-    </div>
-    
-    
 
     <script src="script.js"></script>
 </body>
+
 </html>
